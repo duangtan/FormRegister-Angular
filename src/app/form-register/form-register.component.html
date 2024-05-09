@@ -1,0 +1,40 @@
+<div class="form-container">
+    <h2>Form Register</h2>
+    <div class="form-row">
+        <div class="left-column">
+            Firstname<br/><input type="text" value={{firstName}}/>
+        </div>
+        <div class="right-column">
+            Lastname<br/><input type="text" value={{lastName}}/>
+        </div>
+    </div>
+        
+    <div class="form-row">
+        <div class="left-column">Age<br/><input type="number"  value={{age}} min="1"/></div>
+        <div class="right-column">
+            Gender
+            <select name="genders" value={{gender}}>
+              <option value="man">ชาย</option>
+              <option value="woman">หญิง</option>
+              <option value="lgbtq">LGBTQ+</option>
+            </select> 
+        </div>
+    </div>
+        
+    <div>Email<br/><input type="text" value={{email}}/></div>
+    <div>Phone<br/><input type="text" (input)="validateInput($event)"  value={{phone}}/></div>
+    
+    <div class="form-row">
+        <div class="left-column">Password<br/><input type="text" value = {{password}}/></div>
+        <div class="right-column" >Confirm Password<br/><input type="text" value ={{confirmPassword}}/></div>
+    </div>
+        
+    <div class="form-row">
+        <button type="button" (click)="Verify()" class="left-column">สมัคร</button>
+        <button type="button" (click)="Cancle()" class="right-column">ยกเลิก</button>
+    </div>
+</div>
+
+
+  
+  

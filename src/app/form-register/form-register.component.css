@@ -1,0 +1,58 @@
+
+  .form-container {
+      border: 1px solid #ccc;
+      padding: 20px;
+      width: 450px;
+      margin: 0 auto;
+      margin-top: 100px;
+      border-radius: 20px;
+      background-color: white;
+  }
+  .form-container div {
+      margin-bottom: 10px;
+    }
+   
+  h2{
+      font-size: 25px;
+      text-align: center;
+    }
+    
+  .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr; 
+      gap: 10px;
+      
+  }
+    
+  .left-column {
+      grid-column: 1; 
+      margin: 0 5px;
+  }
+    
+  .right-column {
+      grid-column: 2; 
+      margin: 0 5px;
+  }
+  
+  
+    .form-container input,
+    .form-row select {
+      width: 100%;
+      padding: 5px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+  
+    .form-container button {
+      padding: 8px 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+    }
+  
+    .form-container button:hover {
+      background-color: blue;
+    }
+  
