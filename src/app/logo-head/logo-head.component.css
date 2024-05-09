@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+}
+
+.left {
+    width: 30%;
+    
+    height: 80px;
+}
+
+.right {
+    flex: 1; /* ให้เต็มพื้นที่ที่เหลือ */
+    height: 80px;
+    
+    
+}
+
+/* CSS Media Query เมื่อหน้าจอมีขนาดเล็ก */
+@media screen and (max-width: 800px) {
+    .left {
+        display: none; /* ซ่อนส่วนซ้าย */
+    }
+
+    .right {
+        width: 100%; /* ให้ส่วนขวาเต็มรูปแบบ */
+    }
+}

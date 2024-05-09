@@ -1,39 +1,78 @@
-<div class="form-container">
-    <h2>Form Register</h2>
-    <div class="form-row">
-        <div class="left-column">
-            Firstname<br/><input type="text" value={{firstName}}/>
+<div> 
+    <div class="form-container">   
+        <div class="alert-success" *ngIf="isSuccess">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            <strong>Success!</strong> Successfully applied
         </div>
-        <div class="right-column">
-            Lastname<br/><input type="text" value={{lastName}}/>
+
+        <div class="alert-passnotmatch" *ngIf="isPassmatch">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            <strong>Pass</strong> Successfully applied
         </div>
-    </div>
-        
-    <div class="form-row">
-        <div class="left-column">Age<br/><input type="number"  value={{age}} min="1"/></div>
-        <div class="right-column">
-            Gender
-            <select name="genders" value={{gender}}>
-              <option value="man">ชาย</option>
-              <option value="woman">หญิง</option>
-              <option value="lgbtq">LGBTQ+</option>
-            </select> 
+          
+        <h2>Form Register</h2>
+        <div class="form-row">
+            <div class="left-column">
+                <div class="info-header">Firstname</div>
+                <input type="text" placeholder="Firstname" value={{firstName}} [(ngModel)]="firstName" />
+                <a class="incomplete-aleart" *ngIf="isFormSubmitted && !firstName">Please fill in your name</a>
+            </div>
+            <div class="right-column">
+                <div class="info-header">Lastname</div>
+                <input type="text" placeholder="Lastname" value={{lastName}} [(ngModel)]="lastName"/>
+                <a class="incomplete-aleart" *ngIf="isFormSubmitted && !lastName">Please fill in your lastname</a>
+            </div>
         </div>
-    </div>
+            
+        <div class="form-row">
+            <div class="left-column">
+                <div class="info-header">Age</div>
+                <input type="text" placeholder="Age"  value={{age}} [(ngModel)]="age" (keypress)="validateInput($event)"/>
+                <a class="incomplete-aleart" *ngIf="isFormSubmitted && !age">Please fill in your age</a>
+            </div>
+            <div class="right-column">
+                <div class="info-header">Gender</div>
+                <select name="genders" value={{gender}}  [(ngModel)]="gender">
+                    <option value="" disabled selected>Select your gender</option>
+                    <option value="man">ชาย</option>
+                    <option value="woman">หญิง</option>
+                    <option value="lgbtq">LGBTQ+</option>
+                </select> 
+                <a class="incomplete-aleart" *ngIf="isFormSubmitted && !gender">Please select your gender</a>
+            </div>
+        </div>
+            
+        <div>
+            <div class="info-header">Email</div>
+            <input type="text" placeholder="Email" value={{email}}  [(ngModel)]="email"/>
+            <div class="incomplete-aleart" *ngIf="isFormSubmitted && !email">Please fill in your email</div>
+        </div>
+
+        <div>
+            <div class="info-header">Phone</div>
+            <input type="text" value={{phone}} placeholder="Phone" [(ngModel)]="phone" (keypress)="validateInput($event)"/>
+            <div class="incomplete-aleart" *ngIf="isFormSubmitted && !phone">Please fill in your phone</div>
+        </div>
         
-    <div>Email<br/><input type="text" value={{email}}/></div>
-    <div>Phone<br/><input type="text" (input)="validateInput($event)"  value={{phone}}/></div>
-    
-    <div class="form-row">
-        <div class="left-column">Password<br/><input type="text" value = {{password}}/></div>
-        <div class="right-column" >Confirm Password<br/><input type="text" value ={{confirmPassword}}/></div>
-    </div>
-        
-    <div class="form-row">
-        <button type="button" (click)="Verify()" class="left-column">สมัคร</button>
-        <button type="button" (click)="Cancle()" class="right-column">ยกเลิก</button>
+        <div class="form-row">
+            <div class="left-column">
+                <div class="info-header">Password</div>
+                <input type="password" placeholder="Password" value = {{password}} [(ngModel)]="password"/>
+                <a class="incomplete-aleart" *ngIf="isFormSubmitted && !password">Please fill in your password</a>
+            </div>
+            <div class="right-column" >
+                <div class="info-header">Confirm Password</div>
+                <input type="password" placeholder="Confirm Password" value ={{confirmPassword}} [(ngModel)]="confirmPassword"/>
+                <a class="incomplete-aleart" *ngIf="isFormSubmitted && !confirmPassword">Please fill in your confirm password</a>
+            </div>
+        </div>
+        <div class="form-row">
+            <button type="button" (click)="Verify()" class="left-column">Confirm</button>
+            <button type="button" (click)="Cancle()" class="right-column">Cancle</button>
+        </div>
     </div>
 </div>
+
 
 
   
